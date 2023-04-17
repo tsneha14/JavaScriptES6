@@ -130,7 +130,7 @@ const { name1, coun } = student; //no need of commas as in array destructuring o
 console.log(name1, coun)
 
 //ES6 classes
-class CreateRoom {
+class CreateRoom {    // class names are written in PascalCase whereas functions are written in camelCase in JS
     constructor(name){
         this.room = `${name}'s room`;
     }
