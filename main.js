@@ -81,3 +81,151 @@ let clonedObj = {...obj1}
 console.log(clonedObj)
 let mergedObj = { ...obj1, ...obj2 };
 console.log(mergedObj)
+
+//Array Destructuring
+const sgb = [255, 200, 0];
+// const s = sgb[0];
+// const g = sgb[1];
+// const b = sgb[2];
+// Instead of above write below statements
+const [s, g, b] = sgb;
+console.log(s, g, b);
+
+//Using Spread operator
+const even = [2, 4, 6, 8, 10];
+const [first, second, ...arr] = even;
+console.log(first)
+console.log(second)
+console.log(arr)
+
+//Skipping items
+const hex = ['#fff', '#000', '#678'];
+const [white, black,] = hex;
+console.log(white)
+console.log(black)
+
+//Object destructuring
+const developer = {
+    firstname: 'Nabendu',
+    lastname: 'Biswas',
+    country: 'India'
+  };
+// const firstname = developer.firstname;
+// const lastname = developer.lastname;
+// const country = developer.country;
+// Instead of above write below statements
+const { firstname, lastname, country } = developer;
+console.log(firstname, lastname, country);
+
+//Skipping items
+const student = {
+    name1: 'Hriday',
+    lname: 'Biswas',
+    coun: 'India'
+   };
+const { name1, coun } = student;
+console.log(name1, coun)
+
+//ES6 classes
+class CreateRoom {
+    constructor(name){
+        this.room = `${name}'s room`;
+    }
+    cleanRoom(soap){
+        console.log(`Cleaning ${this.room} with ${soap}`)
+    }
+}
+const nabsRoom = new CreateRoom('Nabendu');
+const shikhaRoom = new CreateRoom('Shikha');
+nabsRoom.cleanRoom('Domex');
+shikhaRoom.cleanRoom('Lizol');
+
+//Classical for loop
+let family = [ 'Nabendu', 'Shikha', 'Hriday' ];
+for(let i=0; i<family.length; i++){
+    console.log(family[i])
+}
+family.forEach(member => console.log(member))
+
+//Map use case
+let numbers1 = [6, 8, 10];
+let doubledNums = [];
+for(let i=0; i<numbers1.length; i++){
+    doubledNums.push(numbers1[i] * 2)
+}
+console.log(doubledNums)
+let doubled = numbers1.map(num => num * 2);
+console.log(doubled);
+
+//filter use case
+let products = [
+    { name: 'Samsung M21', category: 'smartphone'},
+    { name: 'Samsung M31', category: 'smartphone'},
+    { name: 'Macbook Air', category: 'laptop'},
+    { name: 'Asus Zenbook', category: 'laptop'}
+];
+let filteredProducts = [];
+for(let i=0; i<products.length; i++){
+    if(products[i].category === 'smartphone'){
+        filteredProducts.push(products[i])
+    }
+}
+console.log(filteredProducts)
+
+//filter
+let filtered = products.filter(item => item.category === 'laptop');
+console.log(filtered)
+
+//find use case
+let users = [
+    {name: 'Nabendu'},
+    {name: 'Shikha'},
+    {name: 'Hriday'},
+    {name: 'Mausam'},
+    {name: 'Hari'},
+    {name: 'Sneha'},
+    {name: 'Hriday'}
+];
+let user;
+for(let i=0; i<users.length; i++){
+    if(users[i].name === 'Hriday'){
+        user = users[i];
+    }
+}
+console.log(user)
+let es6User = users.find(user => user.name === 'Sneha');
+console.log(es6User)
+
+//some and every
+let devices = [
+    { name: 'Samsung M21', category: 'smartphone', ram: 4},
+    { name: 'Samsung M31', category: 'smartphone', ram: 6},
+    { name: 'Macbook Air', category: 'laptop', ram: 8},
+    { name: 'Asus Zenbook', category: 'laptop', ram: 16}
+];
+
+// //every
+const allDevicesCode = devices.every(device => device.ram >= 6);
+console.log(allDevicesCode);
+
+// //some
+const someDevicesCode = devices.some(device => device.ram >= 6);
+console.log(someDevicesCode);
+
+//Classic use case of reduce
+let numbers = [20, 30, 40];
+// var sum = 0;
+// for(let i=0; i<numbers.length; i++){
+//     sum += numbers[i]
+// }
+// console.log(sum)
+// Instead of above write below statements
+const sumReduce = numbers.reduce((acc, curr) => {
+    return acc + curr
+}, 0)
+
+//output will be as below
+// 0 + 20 = 20
+// 20 + 30 = 50
+// 50 + 40 = 90
+console.log(sumReduce)
