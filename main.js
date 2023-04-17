@@ -79,6 +79,7 @@ console.log(d1);
 let obj1 = { foo: 'bar', x: 42 }, obj2 = { foo: 'baz', y: 13 };
 let clonedObj = {...obj1}
 console.log(clonedObj)
+
 let mergedObj = { ...obj1, ...obj2 };
 console.log(mergedObj)
 
@@ -87,7 +88,8 @@ const sgb = [255, 200, 0];
 // const s = sgb[0];
 // const g = sgb[1];
 // const b = sgb[2];
-// Instead of above write below statements
+
+// simple way
 const [s, g, b] = sgb;
 console.log(s, g, b);
 
@@ -100,7 +102,7 @@ console.log(arr)
 
 //Skipping items
 const hex = ['#fff', '#000', '#678'];
-const [white, black,] = hex;
+const [white, black,] = hex; //need commas as arrays follow order
 console.log(white)
 console.log(black)
 
@@ -113,7 +115,8 @@ const developer = {
 // const firstname = developer.firstname;
 // const lastname = developer.lastname;
 // const country = developer.country;
-// Instead of above write below statements
+
+// simple way
 const { firstname, lastname, country } = developer;
 console.log(firstname, lastname, country);
 
@@ -123,7 +126,7 @@ const student = {
     lname: 'Biswas',
     coun: 'India'
    };
-const { name1, coun } = student;
+const { name1, coun } = student; //no need of commas as in array destructuring objects do not have order
 console.log(name1, coun)
 
 //ES6 classes
@@ -135,9 +138,10 @@ class CreateRoom {
         console.log(`Cleaning ${this.room} with ${soap}`)
     }
 }
-const nabsRoom = new CreateRoom('Nabendu');
+const nabsRoom = new CreateRoom('Nabendu'); //creating object instance
 const shikhaRoom = new CreateRoom('Shikha');
-nabsRoom.cleanRoom('Domex');
+
+nabsRoom.cleanRoom('Domex'); //calling the method inside the object class
 shikhaRoom.cleanRoom('Lizol');
 
 //Classical for loop
@@ -145,7 +149,9 @@ let family = [ 'Nabendu', 'Shikha', 'Hriday' ];
 for(let i=0; i<family.length; i++){
     console.log(family[i])
 }
-family.forEach(member => console.log(member))
+
+//simple way
+family.forEach(member => console.log(member)) //forEach does not return any result
 
 //Map use case
 let numbers1 = [6, 8, 10];
@@ -154,7 +160,9 @@ for(let i=0; i<numbers1.length; i++){
     doubledNums.push(numbers1[i] * 2)
 }
 console.log(doubledNums)
-let doubled = numbers1.map(num => num * 2);
+
+//simple way
+let doubled = numbers1.map(num => num * 2); //since map returns the result, we must store that result in a variable (here, numbers1) and stores all those results in a new array (here, doubled)
 console.log(doubled);
 
 //filter use case
@@ -172,7 +180,7 @@ for(let i=0; i<products.length; i++){
 }
 console.log(filteredProducts)
 
-//filter
+//simple way
 let filtered = products.filter(item => item.category === 'laptop');
 console.log(filtered)
 
@@ -193,6 +201,8 @@ for(let i=0; i<users.length; i++){
     }
 }
 console.log(user)
+
+//simple way
 let es6User = users.find(user => user.name === 'Sneha');
 console.log(es6User)
 
@@ -214,12 +224,13 @@ console.log(someDevicesCode);
 
 //Classic use case of reduce
 let numbers = [20, 30, 40];
-// var sum = 0;
-// for(let i=0; i<numbers.length; i++){
-//     sum += numbers[i]
-// }
-// console.log(sum)
-// Instead of above write below statements
+var sum = 0;
+for(let i=0; i<numbers.length; i++){
+    sum += numbers[i]
+}
+console.log(sum)
+
+//simple way
 const sumReduce = numbers.reduce((acc, curr) => {
     return acc + curr
 }, 0)
